@@ -1,0 +1,12 @@
+* {
+  /* border: 2px solid black; */
+}
+
+p {
+  display: inline;
+}
+
+li,
+ul {
+  display: inline;
+}
