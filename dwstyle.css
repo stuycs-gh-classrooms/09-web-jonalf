@@ -13,14 +13,17 @@ a {
   height: 100px;
 }
 
+/*
 li {
   display: inline;
 }
+*/
+
 
 img {
-  margin: auto;
-  display: block;
+  float: left;
 }
+
 
 h1 {
   text-align: center;
@@ -29,7 +32,6 @@ h1 {
 }
 
 p {
-  border: 2px solid green;
   padding: 10px;
   overflow: auto;
 }
@@ -37,4 +39,13 @@ p {
 p,
 h1 {
   color: purple;
+}
+
+.picturebox {
+  border: 2px dotted aliceblue;
+}
+
+.red {
+  color: red;
+  background-color: white;
 }
