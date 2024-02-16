@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link href="mystyle1.css" rel="stylesheet">
+    <link id="stylesheet" href="mystyle.css" rel="stylesheet">
     <title>Lorem Ipsum</title>
   </head>
 
@@ -33,7 +33,13 @@
         Well, he's kind of had it in for me ever since I accidentally ran over his dog. Actually, replace "accidentally" with "repeatedly" and replace "dog" with "son." Stan Lee never left. I'm afraid his mind is no longer in mint condition.
       </p>
     </div>
-
+    <div class="stylechange">
+      Change CSS:
+      <button onclick="document.getElementById('stylesheet').href='mystyle.css'">muted</button>
+      <button onclick="document.getElementById('stylesheet').href='mystyle2.css'">neon</button>
+      <button onclick="document.getElementById('stylesheet').href='mystyle1.css'">sidenav</button>
+      <button onclick="document.getElementById('stylesheet').href=''">nothing</button>
+    </div>
   </body>
 
 </html>

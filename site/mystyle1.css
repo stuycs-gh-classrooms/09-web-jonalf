@@ -52,3 +52,9 @@ h1 {
   text-align: center;
   text-decoration: underline;
 }
+
+.stylechange {
+  text-align: center;
+  font-size: .75em;
+  border-top: 1px solid black;
+}
