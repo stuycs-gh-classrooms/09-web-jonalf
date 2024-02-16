@@ -4,8 +4,12 @@ html {
 }
 body {
   width: 80%;
-  margin: auto;
+  height: 100%;
+  padding: 0px;
+  margin-left: 0px;
+  /*margin: auto;*/
   background-color: #FCDC4D;
+  height: 100vh;
 }
 
 /*navigation list*/
