@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>DW's Fractals</title>
+  </head>
+
+  <body>
+    <h1>Fractal Fun!</h1>
+    <div>
+      <h2>Koch Curve</h2>
+      <p>
+        Basic curve <code>koch_curve(t, 4, 20)</code>
+      </p>
+      <img src="koch-basic.png" width="50%">
+      <p>
+        This is the basic Koch Curve except as the depth increases the size decreases. <code>koch_curve(t, 6, 100)</code>
+      </p>
+      <img src="koch.png" width="50%">
+      <pre>
+        <code>
+def koch_curve(t, depth, size):
+    if (depth == 1):
+        t.fd(size)
+    else:
+        koch_curve(t, depth-1, size*0.6)
+        t.lt(60)
+        koch_curve(t, depth-1, size*0.6)
+        t.rt(120)
+        koch_curve(t, depth-1, size*0.6)
+        t.lt(60)
+        koch_curve(t, depth-1, size*0.6)
+        </code>
+      </pre>
+    </div>
+
+    <hr>
+
+    <div>
+      <h2>Sierpinski Triangle</h2>
+      <p>
+        Basic triangle <code>sierpinski(t, 5, 200)</code>
+      </p>
+      <img src="sierpinski-basic.png">
+      <p>
+        This function does not actually draw the triangle at the base case, instead what we see is the result of the turtle moving to position itself correctly.<code>sierpinski(t, 6, 100)</code>
+      </p>
+      <img src="sierpinski.png">
+      <pre>
+        <code>
+def sierpinski(t, depth, size, scale_factor=1):
+    if depth > 1:
+        sierpinski(t, depth-1, size/2)
+        t.fd(size/2)
+        sierpinski(t, depth-1, size/2)
+        t.bk(size/2)
+        t.lt(60)
+        t.fd(size/2)
+        t.rt(60)
+        sierpinski(t, depth-1, size/2)
+        t.rt(120)
+        t.fd(size/2)
+        t.lt(120)
+        </code>
+      </pre>
+    </div>
+
+    <hr>
+
+    <div>
+      <h2>Trees</h2>
+      <p>
+        Basic tree <code>tree(t, 4, 50, 20)</code>
+      </p>
+      <img src="tree-basic.png">
+      <p>
+        This tree has a number of modifications:
+        <ul>
+          <li>Each branch gets shorter in length.</li>
+          <li>Each branch gets smaller in width.</li>
+          <li>The "leaves" are green while the branches are brown.</li>
+          <li>Subtrees are drawn using a random angle within a range instead of the same angle each time.</li>
+        </ul>
+        <code>tree(t, 10, 150, 20, 11)</code>
+      </p>
+      <img src="tree.png">
+      <pre>
+        <code>
+def tree(t, depth, size, angle, width):
+    t.width(width)
+    if depth == 0:
+        t.pencolor("green")
+        t.fd(size)
+        t.bk(size)
+        t.pencolor("brown")
+    else:
+        t.pencolor("brown")
+        angle+= random.randrange(-5, 5)
+        size+= random.randrange(-5, 5)
+        t.fd(size)
+        t.rt(angle)
+        tree(t, depth-1, size * .75, angle, width-1)
+        t.lt(2 * angle)
+        tree(t, depth-1, size * .75, angle, width-1)
+        t.rt(angle)
+        t.bk(size)
+        </code>
+      </pre>
+    </div>
+
+  </body>
+
+</html>
