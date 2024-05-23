@@ -2,5 +2,5 @@
 
 from random import random
 
-r = random(-10. 10)
+r = random(-10, 10)
 print('your lucky number is: ', r)
