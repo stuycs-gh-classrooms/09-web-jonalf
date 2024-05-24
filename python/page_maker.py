@@ -19,7 +19,7 @@ def make_body(s):
     return body
 
 page = make_head("Lucky Number")
-body = "You're lucky number is: "
+body = "Your lucky number is: "
 body+= str(int(random()*100))
 page+= make_body(body)
 print(page)
