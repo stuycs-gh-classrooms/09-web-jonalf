@@ -20,6 +20,6 @@ def make_body(s):
 
 page = make_head("Lucky Number")
 body = "You're lucky number is: "
-body+= int(random()*100)
+body+= str(int(random()*100))
 page+= make_body(body)
 print(page)
