@@ -28,7 +28,7 @@ if ('name' in data):
     name = data['name'].value
 bgcolor = 'DarkSeaGreen'
 if ('bgcolor' in data):
-    bgcolor = data['bgcolor']
+    bgcolor = data['bgcolor'].value
 
 html= HTML_HEADER
 html+= '<body style="background-color: '
