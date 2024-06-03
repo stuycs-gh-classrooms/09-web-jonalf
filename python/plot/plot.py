@@ -1,8 +1,8 @@
 #!/usr/bin/python
 print('Content-type: text/html\n')
 
-#import cgitb #
-#cgitb.enable() #These 2 lines will allow error messages to appear on a web page in the browser
+import cgitb #
+cgitb.enable() #These 2 lines will allow error messages to appear on a web page in the browser
 
 import matplotlib.pyplot as plt
 import io
@@ -32,7 +32,7 @@ def make_image_element():
     buffer.seek(0)
     #image_code = buffer.getvalue().decode('utf-8')
     image_code = base64.b64encode(buffer.read()).decode('utf-8')
-    source = "data:image/png;base64,"
+    src = "data:image/png;base64,"
     src+= image_code
     html = '<img src="' + src
     html+= '">'
