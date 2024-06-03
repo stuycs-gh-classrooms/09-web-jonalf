@@ -24,7 +24,7 @@ HTML_FOOTER = """
 """
 
 
-def graph_to_data_string():
+def make_image_element():
     #create buffer to store the graph image
     buffer = io.BytesIO()
     #save graph image to buffer
@@ -33,14 +33,11 @@ def graph_to_data_string():
     #image_code = buffer.getvalue().decode('utf-8')
     image_code = base64.b64encode(buffer.read()).decode('utf-8')
     source = "data:image/png;base64,"
-    source+= image_code
-    return source
-
-def make_image_element():
-    src = graph_to_data_string()
+    src+= image_code
     html = '<img src="' + src
     html+= '">'
     return html
+
 
 def make_graph():
     rent = open('manhattan_rent.csv').read()
