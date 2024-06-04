@@ -84,7 +84,10 @@ def make_form(select_options):
         o+= option + '</option>\n'
         select+= o
     select+= '</select>\n'
-    return select
+    
+    html+= select
+    html+= '<input type="submit">Submit!</input>'
+    return html
 
 #get form input
 form_input = cgi.FieldStorage()
