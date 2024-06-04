@@ -86,7 +86,7 @@ def make_form(select_options):
     select+= '</select>\n'
     
     html+= select
-    html+= '<input type="submit">Submit!</input>'
+    html+= '<input type="submit" value="Submit!">'
     return html
 
 #get form input
