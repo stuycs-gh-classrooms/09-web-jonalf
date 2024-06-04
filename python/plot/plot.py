@@ -60,31 +60,47 @@ def make_html(title, body):
     html+= '</body></html>'
     return html
 
-def make_body(img):
+def make_body(img, form):
     body = """
     <h1>Graph Demo</h1>
     <p>
     If this works correctly, we should see a scatterplot generated in matplotlib by this python file.
     """
     body+= img + '</p>'
+    body+= '<p>Try it again!<br>'
+    body+= form + '</p>'
     return body
 
+def make_form(select_options):
+    html = """
+    <form action="hello.py" method="GET">
+    Type of graph:
+    """
+    select = """
+    <select name="graph_type">
+    """
+    for option in select_options:
+        o = '<option value="' + option + '">'
+        o+= option + '</option>\n'
+        select+= o
+    select+= '</select>\n'
+    return select
 
 #get form input
-form = cgi.FieldStorage()
+form_input = cgi.FieldStorage()
 
 #get the data
 data = get_data()
 #make the graph
 plt.ylabel('rent price $')
 plt.xlabel('apartment size sq ft')
-if ('graph_type' in form):
+if ('graph_type' in form_input):
     plt.scatter(data['size'], data['rents'])
 else:
     plt.bar(data['size'], data['rents'])
 #create the image element
 img = make_image_element()
-
-body = make_body(img)
+form = make_form(['scatter', 'bar'])
+body = make_body(img, form)
 html = make_html('Graph Demo', body)
 print(html)
