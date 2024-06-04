@@ -73,7 +73,7 @@ def make_body(img, form):
 
 def make_form(select_options):
     html = """
-    <form action="hello.py" method="GET">
+    <form action="plot.py" method="GET">
     Type of graph:
     """
     select = """
@@ -98,9 +98,14 @@ data = get_data()
 plt.ylabel('rent price $')
 plt.xlabel('apartment size sq ft')
 if ('graph_type' in form_input):
-    plt.scatter(data['size'], data['rents'])
+    if (form_input['graph_type'] == 'scatter'):
+        plt.scatter(data['size'], data['rents'])
+    elif (form_input['graph_type'] == 'bar'):
+        plt.bar(data['size'], data['rents'])
+    else:
+        plt.scatter(data['size'], data['rents'])
 else:
-    plt.bar(data['size'], data['rents'])
+    plt.scatter(data['size'], data['rents'])
 #create the image element
 img = make_image_element()
 form = make_form(['scatter', 'bar'])
