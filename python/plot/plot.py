@@ -98,14 +98,15 @@ data = get_data()
 plt.ylabel('rent price $')
 plt.xlabel('apartment size sq ft')
 if ('graph_type' in form_input):
-    if (form_input['graph_type'] == 'scatter'):
+    if (form_input['graph_type'].value == 'scatter'):
         plt.scatter(data['size'], data['rents'])
-    elif (form_input['graph_type'] == 'bar'):
+    elif (form_input['graph_type'].value == 'bar'):
         plt.bar(data['size'], data['rents'])
     else:
         plt.scatter(data['size'], data['rents'])
 else:
     plt.scatter(data['size'], data['rents'])
+    
 #create the image element
 img = make_image_element()
 form = make_form(['scatter', 'bar'])
