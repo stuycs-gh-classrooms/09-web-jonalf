@@ -21,7 +21,7 @@ def make_html(title, body):
 
 def make_form(radio_options):
     html = """
-    <form action="plot.py" method="GET">
+    <form action="dynaform.py" method="GET">
     Who are you? <input type="text" name="name" value="Bob">
     <br>
     """
@@ -51,7 +51,7 @@ if (len(data) != 0):
     body = '<body style="background-color: '
     body+= bgcolor + ';">'
     body+= '<h1>Hello ' + name + '</h1>'
-    body+= '<br><a href="hello.py">Try Again</a>'
+    body+= '<br><a href="dynaform.py">Try Again</a>'
     html = make_html('Form Result', body)
     print(html)
 #if no form data, return the form html instead of result
