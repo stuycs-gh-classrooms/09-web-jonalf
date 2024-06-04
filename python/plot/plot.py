@@ -106,10 +106,15 @@ if ('graph_type' in form_input):
         plt.scatter(data['size'], data['rents'])
 else:
     plt.scatter(data['size'], data['rents'])
-    
+
+
 #create the image element
 img = make_image_element()
+#create the form
 form = make_form(['scatter', 'bar'])
+#create the body
 body = make_body(img, form)
+#create the html
 html = make_html('Graph Demo', body)
+#print page, presto!
 print(html)
